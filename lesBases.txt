@@ -1,0 +1,212 @@
+javaScript est un langage de programmation qui ajoute de l'interactivité à votre site web. il permet d'interagir avec les éléments du dom. par exemple gérer les click sur les boutons, créer dynamiquement du code html ou css etc.
+les fichiers javascript ont une extension .js. exemple: main.js
+
+pour importer un fichier js dans le code html on utilise la balise <script> comme suit dans la partie head:
+
+<script type="text/javascript" src="main.js"></script>
+
+Les variables
+les variables sont des conteneurs dans lesquels on peut stocker des valeurs.
+pour déclarer une variable on utilise le mot clé var suivi du nom de la variable:
+
+var name = "clétus";
+on peut aussi utiliser le mot clé let pour déclarer une variable:
+
+let country = "bénin";
+
+vous remarquerai qu'à la fin de chaque instruction il y a un point virgule. 9a marque la fin de l'instruction. En javascript le point virgule n'est pas obligatoire mais c'est une bonne pratique.
+
+pour voir le contenu d'une variable vous pouvez utiliser la fonction console.log()
+
+exemple:
+  var name = "toto";
+  console.log(name);
+
+  Pratique:
+  Ouvrez votre projet et créer un fichier js appelé main.js
+  importer ce fichier dans votre code html
+  dans le fichier main.js créer une variable name avec la valeur "toto"
+  faite un console.log de name
+  ouvrez votre page html dans le navigateur.
+  utiliser l'outils d'inspection pour afficher la console. si tout ce passe bien vous verrez le text "toto" dans la console
+  NB: pour ouvrir la console sur chrome Ctrl + Maj + I puis clquez sur l'onglet console
+
+--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*
+
+== Les différents types de données ==
+une variable peut contenir différents types de valeur:
+
+- une chaîne de caractère ou string. les string sont écrit entre guillement simple '' ou "".
+  exemple:  var name = "toto" ou var name = 'toto';
+
+- un nombre.  les nombres sont écrit sans guillements
+  exemple: var age = 10;
+
+- un booléen (true ou false)
+  exemple: var myBooleen = true; vous remarquerez que true est écrit sans guillement.
+
+- un tableau ou array. un array est un type de donnée qui permet de stocker plusieurs valeurs. un tableau est noté avec des crochets.
+  exemple:
+    var tableauVide = []; ou
+    var fruits = ['fraise', 'orange', 'mangue']; ou
+    var numbers = [0,1,2,3];
+
+- un objet. on reviendra plus loin sur le concept des objets. il faut juste retenir qu'en javascript tout est objet. Par exemple les éléments du dom c'est à dire noeud html représente un objet.
+  exemple: pour stocker la balise h1 de ma page dans une variable il suffit d'écrire
+  var title = document.querySelector('h1'); on reviendra la dessus plus tard.
+
+Pratique:
+dans le fichier main.js
+créer une variable numbers contenant les nombres allant de 0 à 9;
+créer une variable cars contenant trois noms de voiture de votre choix
+créer une variable success contenant la valeur true
+créer une variable bigArray contenant les variables numbers, cars et success.
+faites un console.log() de bigArray
+observez le résultat dans la console de votre navigateur
+
+--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*
+
+== Les opérateurs ==
+un opérateur est un symbole mathématique qui produit un résultat:
+- opérateur Addition + : il est utilisé pour additionner deux nombres ou concaténer(accoler) deux chaines de caractères
+  exemple 1:
+    var number1 = 6;
+    var number2 = 10;
+    var result = number1 + number2; la variable result contient maintenant le résultat de 6+10 donc 16.
+  exemple 2:
+    var text1 = "hello ";
+    var text2 = "world";
+    var result = text1 + text2; la variable result contient maintenant la phrase "hello world"
+- Opérateur de soustration - permet de calculer la différence entre deux nombres
+  exemple: 10 - 5
+- Opérateur de multiplication * permet de faire le produit de deux nombres
+  exemple: 10 * 5
+- Opérateur de division / permet de faire la division d'un nombre par un autre
+  exemple: 10 / 5
+- Opérateur d'affection = permet d'affecter une valeur à une variable
+  exemple: var name = "toto"
+- Opérateur d'égalité === permet de tester si deux valeurs sont égales
+  exemple:
+    if (name === "toto") {
+      ....
+    }
+- Opérateur de négation ! renvoie l'opposé de la valeur qu'il précède
+  exemple:
+  if (name !== "toto") {
+    ....
+  } veut dire si name est différent de "toto"
+
+  trouver tous les opérateurs ici https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs
+
+--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*
+
+== Les conditions ==
+
+les conditions permettent de tester si une expression est vraie ou fausse.
+
+if (condition vrai) {
+  je fais ceci
+} else {
+  je fais ça
+}
+
+le else veut dire sinon. Voici un exemple
+
+var myName = "toto";
+
+if (myName === "toto") {
+  je m'appelle toto
+} else {
+  je ne m'appelle pas toto
+}
+
+voici l'explication de ce code en français.
+mon nom égal toto.
+si mon nom egal toto
+alors je m'appelle toto
+sinon je ne m'appelle pas toto
+
+On peut utiliser un if sans le else
+exemple:
+  var number = 3;
+  if (number > 2) {
+    console.log(number)
+  }
+  ce qui veut dire
+  number égal 3
+  si number est supérieur à 2
+  alors afficher la valeur de number dans la console
+
+  --*--*--*--*--*--*--*--*--*--*--*--*--*--*--*
+
+  == Les functions ==
+  les fonctions sont un moyen d'écrire du code réutilisable. il existe des fonctions natives de javascript mais vous pouvez créer propres fonctions. pour créer une fonction on utilise le mot clé function comme suit:
+
+  une function peut prendre des arguments(ce sont des données qu'on passe à la function)
+  exemple de function sans arguments :
+  function nomDeLaFunction() {
+    ....
+  }
+
+  exemple de function avec arguments :
+  function nomDeLaFunction(arg1, arg2) {
+    ....
+  }
+
+  voici une function qui fait la somme de deux nombres
+  function sum(number1, number2) {
+    var sum = number1 + number2;
+    return sum;
+  }
+  le mot clé return permet de retourner le résultat.
+
+  pour utiliser cette function on fera:
+
+  var result = sum(23, 7); la variable result contient maintenant la valeur 30.
+
+
+  Pratique:
+  écrivez une function qui retourne le carré d'un nombre qu'on lui passe en argument
+  faites le console.log du resultat de la function
+
+
+  --*--*--*--*--*--*--*--*--*--*--*--*--*--*--*
+
+== Sélectionner les élements du dom (document object model)==
+
+il existe plusieurs façons de sélectionner les noeuds html d'une page:
+  première façon:
+  on utilise la methode getElementByTagName de l'objet document. cette méthode
+  prend un argument qui est le nom de la balise qu'on veut sélectionner.
+
+  on peut aussi utiliser la methode getElementById pour sélectionner une balise qui a un id particlier
+  ou encore la methode getElementByClassName pour sélectionner une balise qui a une classe particulière.
+
+  exemple:
+    <div class="container">
+      <h1>my title</h1>
+      <p id="content">lorem ipsum dolor</p>
+      <a href="#">voir plus</a>
+    </div>
+
+    sélection de la balise a
+    var a = document.getElementByTagName("a");
+
+    sélection de la div ayant la classe
+    var div = document.getElementByClassName("container");
+
+    sélection de de la balise ayant l'id contient
+    var p = document.getElementById("content");
+
+  deuxième façon:
+  on utilise la methode querySelector().  Cette methode retourne le premier Element dans le document correspondant
+  au sélecteur. Cette méthode prends un argument qui correspond au sélecteur css (.container ou #content ...)
+  exemple:
+    div class="container">
+      <h1>my title</h1>
+      <p class="content">lorem ipsum dolor</p>
+      <p class="content">lorem ipsum dolor</p>
+    </div>
+
+    var p = document.querySelector(".content"); permet de sélectionner la première balise p ayant la classe content
+    var tousLesP = document.querySelectorAll(".content"); permet de sélectionner toutes les balises p ayant la classe content
